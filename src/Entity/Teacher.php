@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Address;
+use Doctrine\ORM\Mapping\Embedded;
+
 /**
  * @ORM\Entity(repositoryClass=TeacherRepository::class)
  */
@@ -42,6 +44,7 @@ class Teacher
     public function __construct()
     {
         $this->students = new ArrayCollection();
+        $this->address = new Address();
     }
 
     public function getId(): ?int
@@ -73,7 +76,7 @@ class Teacher
         return $this;
     }
 
-    public function getAddress(): ?string
+    public function getAddress(): ?Address
     {
         return $this->address;
     }

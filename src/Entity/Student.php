@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\StudentRepository;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Address;
+use Doctrine\ORM\Mapping\Embedded;
+
 
 /**
  * @ORM\Entity(repositoryClass=StudentRepository::class)
@@ -36,6 +38,13 @@ class Student
      /** @Embedded(class = "Address") */
 
     private $address;
+    
+    public function __construct()
+    {
+        $this->address = new Address();
+    }
+    
+    
 
     /**
      * @ORM\ManyToOne(targetEntity=Teacher::class, inversedBy="students")
@@ -43,7 +52,7 @@ class Student
      */
     private $teacher;
 
-    
+ 
    
 
     public function getId(): ?int
@@ -87,7 +96,7 @@ class Student
         return $this;
     }
 
-    public function getAddress(): ?string
+    public function getAddress(): Address
     {
         return $this->address;
     }
