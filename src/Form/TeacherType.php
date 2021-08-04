@@ -2,10 +2,12 @@
 
 namespace App\Form;
 
+
 use App\Entity\Teacher;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use App\Form\AddressType;
 
 class TeacherType extends AbstractType
 {
@@ -14,6 +16,9 @@ class TeacherType extends AbstractType
         $builder
             ->add('name')
             ->add('email')
+            ->add('address', AddressType::class)
+            
+
         ;
     }
 

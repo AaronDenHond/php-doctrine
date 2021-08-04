@@ -2,27 +2,33 @@
 
 namespace App\Form;
 
-use App\Entity\Student;
+use App\Entity\Address;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Mime\Encoder\AddressEncoderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class Student1Type extends AbstractType
+class AddressType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('firstName')
-            ->add('lastName')
-            ->add('email')
-            ->add('teacher')
+            ->add('street')
+            ->add('postalcode')
+            ->add('city')
+            ->add('country')
+            
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Student::class,
+            'data_class' => Address::class,
         ]);
     }
 }
+
+/* $builder->add('media', MediaType::class, [
+    'data_class' => Media::class,
+]); */

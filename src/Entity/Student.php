@@ -38,12 +38,8 @@ class Student
      /** @Embedded(class = "Address") */
 
     private $address;
-    
-    public function __construct()
-    {
-        $this->address = new Address();
-    }
-    
+
+  
     
 
     /**
@@ -52,7 +48,11 @@ class Student
      */
     private $teacher;
 
- 
+    public function __construct()
+    {
+        $this->address = new Address();
+    }
+    
    
 
     public function getId(): ?int

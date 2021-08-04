@@ -6,6 +6,8 @@ use App\Entity\Student;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use App\Form\AddressType;
+use App\Form\TeacherType;
 
 class StudentType extends AbstractType
 {
@@ -15,8 +17,8 @@ class StudentType extends AbstractType
             ->add('firstName')
             ->add('lastName')
             ->add('email')
-            ->add('address')
-            ->add('teacher')
+            ->add('teacher', TeacherType::class)
+            ->add('address', AddressType::class)
         ;
     }
 
