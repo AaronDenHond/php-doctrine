@@ -88,6 +88,12 @@ class Teacher
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->name;
+    }
+    //SOLUTION FOR STUDENT PAGE : THE TEACHER INPUT ISSUE
+
     /**
      * @return Collection|Student[]
      */
